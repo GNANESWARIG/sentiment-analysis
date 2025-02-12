@@ -28,11 +28,12 @@
             // Display entered text
             document.getElementById("enteredText").innerText = "You entered: " + text;
 
-            fetch("http://localhost:5000/analyze", {  // ✅ Flask backend URL
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ text: text })
-            })
+           fetch("https://sentiment-analysis-1-zfyk.onrender.com/analyze", {  
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ text: text })
+})
+
             .then(response => response.json())
             .then(data => {
                 if (data.error) {
