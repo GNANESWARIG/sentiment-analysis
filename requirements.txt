@@ -2,3 +2,4 @@ flask
 gunicorn
 snscrape
 textblob
+flask-cors
