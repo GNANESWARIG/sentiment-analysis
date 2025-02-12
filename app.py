@@ -1,14 +1,18 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, render_template
 from flask_cors import CORS
 from textblob import TextBlob
 
-app = Flask(__name__)
-CORS(app)  # Allow frontend to communicate with backend
+app = Flask(__name__, static_folder="static", template_folder="templates")
+CORS(app)  # Enable CORS for frontend communication
+
+@app.route("/")
+def home():
+    return render_template("index.html")  # Ensure 'index.html' is inside 'templates/'
 
 @app.route("/analyze", methods=["POST"])
 def analyze_sentiment():
     data = request.json
-    if "text" not in data or not data["text"].strip():
+    if not data or "text" not in data or not data["text"].strip():
         return jsonify({"error": "Text input is empty"}), 400
 
     text = data["text"]
