@@ -1,0 +1,101 @@
+/* Apply full-page background image */
+body {
+    background: url('/images/1.jpg') no-repeat center center fixed;
+    background-size: cover;
+    font-family: Arial, sans-serif;
+    color: white;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+/* Container Styling */
+.container {
+    max-width: 500px;
+    margin: 100px auto;
+    background: rgba(0, 0, 0, 0.6); /* Dark background for contrast */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.3);
+    animation: fadeIn 1s ease-in-out;
+}
+
+/* Animate fade-in effect */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Heading with underline effect */
+h2 {
+    font-size: 28px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+h2::after {
+    content: "";
+    display: block;
+    width: 60%;
+    height: 3px;
+    background: white;
+    margin: 5px auto;
+}
+
+/* Textarea Styling */
+textarea {
+    width: 90%;
+    height: 100px;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 8px;
+    border: 1px solid white;
+    outline: none;
+    resize: none;
+    background: rgba(255, 255, 255, 0.3);
+    color: black;
+    font-weight: bold;
+    transition: 0.3s ease-in-out;
+}
+
+/* Textarea Hover Effect */
+textarea:focus {
+    background: white;
+    color: black;
+}
+
+/* Button Styling */
+button {
+    background: linear-gradient(90deg, #ff416c, #ff4b2b);
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: transform 0.2s ease-in-out;
+}
+
+/* Button Hover Effect */
+button:hover {
+    transform: scale(1.1);
+    background: linear-gradient(90deg, #ff4b2b, #ff416c);
+}
+
+/* Sentiment Result Styling */
+h3 {
+    font-size: 22px;
+    margin-top: 20px;
+    text-decoration: underline;
+}
+
+p#sentimentResult {
+    font-size: 18px;
+    font-weight: bold;
+    padding: 10px;
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.2);
+}
