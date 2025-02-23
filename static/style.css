@@ -1,16 +1,16 @@
-/* Ensure full-screen background on all devices */
+/* Ensure full-screen background */
 html, body {
     height: 100%;
     width: 100%;
     margin: 0;
     padding: 0;
-    overflow: hidden; /* Prevents accidental scrolling */
+    overflow: hidden;
 }
 
-/* Apply full-page futuristic AI background */
+/* Apply AI futuristic background */
 body {
     background: url('/static/1.jpg') no-repeat center center fixed;
-    background-size: 100% 100%; /* Ensures full coverage */
+    background-size: cover;
     font-family: 'Orbitron', sans-serif; /* Futuristic font */
     color: #f0f0f0;
     text-align: center;
@@ -19,35 +19,17 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-    animation: backgroundZoom 10s infinite alternate ease-in-out;
 }
 
-/* Background Zoom Animation */
-@keyframes backgroundZoom {
-    0% {
-        background-size: 100% 100%;
-    }
-    100% {
-        background-size: 110% 110%;
-    }
-}
-
-/* Neon Glow Container */
+/* Container Styling */
 .container {
     width: 90%;
     max-width: 500px;
-    background: rgba(10, 10, 30, 0.8); /* Deep dark transparent background */
+    background: rgba(10, 10, 30, 0.85); /* Transparent dark container */
     padding: 20px;
     border-radius: 12px;
     box-shadow: 0 0 15px rgba(0, 255, 255, 0.5); /* Neon cyan glow */
-    animation: fadeIn 1s ease-in-out;
     margin-top: 5vh;
-}
-
-/* Animate fade-in effect */
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(-20px); }
-    to { opacity: 1; transform: translateY(0); }
 }
 
 /* Heading with neon effect */
@@ -70,7 +52,7 @@ textarea {
     outline: none;
     resize: none;
     background: rgba(10, 10, 40, 0.9);
-    color: #f0f0f0;
+    color: #ffffff;
     font-weight: bold;
     transition: 0.3s ease-in-out;
 }
@@ -79,7 +61,7 @@ textarea {
 textarea:focus {
     background: rgba(20, 20, 60, 1);
     color: white;
-    border-color: #ff00ff; /* Changes to neon pink */
+    border-color: #ff00ff;
 }
 
 /* Neon Button Styling */
@@ -104,15 +86,17 @@ button:hover {
     box-shadow: 0 0 15px rgba(255, 0, 255, 0.8);
 }
 
-/* Sentiment Result Styling */
+/* Entered Text & Result Labels */
 h3 {
     font-size: 22px;
     margin-top: 20px;
     text-decoration: underline;
-    color: #ff00ff; /* Neon pink */
+    color: #00ffff; /* Bright cyan for visibility */
+    text-shadow: 0 0 8px rgba(0, 255, 255, 0.7);
 }
 
-p#sentimentResult, p#enteredText {
+/* Entered Text & Result Values */
+p#enteredText, p#sentimentResult {
     font-size: 18px;
     font-weight: bold;
     padding: 10px;
@@ -120,14 +104,14 @@ p#sentimentResult, p#enteredText {
     background: rgba(255, 255, 255, 0.1);
     display: inline-block;
     margin-top: 10px;
-    color: #f0f0f0;
-    text-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
+    color: #ffffff; /* White for better visibility */
+    text-shadow: 0 0 10px rgba(0, 191, 255, 0.9); /* Soft blue glow */
 }
 
 /* Mobile Responsiveness */
 @media (max-width: 768px) {
     body {
-        background-size: 100% 100%;
+        background-size: cover;
         min-height: 100vh;
     }
 
