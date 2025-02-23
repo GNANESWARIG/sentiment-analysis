@@ -1,7 +1,8 @@
 /* Apply full-page background image with zoom effect */
 body {
     background: url('/static/1.jpg') no-repeat center center fixed;
-    background-size: cover;
+    background-size: 110%;  /* Ensure it fills the screen */
+    min-height: 100vh;  /* Full viewport height */
     font-family: Arial, sans-serif;
     color: white;
     text-align: center;
@@ -13,17 +14,17 @@ body {
 /* Background Zoom Animation */
 @keyframes bgZoom {
     from {
-        background-size: 100%;
+        background-size: 110%;
     }
     to {
-        background-size: 110%;
+        background-size: 120%;
     }
 }
 
 /* Container Styling */
 .container {
-    max-width: 500px;
-    margin: 100px auto;
+    max-width: 90%;  /* Adjust width for mobile */
+    margin: 10vh auto;  /* Adjust margin to avoid overflow */
     background: rgba(0, 0, 0, 0.6); /* Dark background for contrast */
     padding: 20px;
     border-radius: 10px;
@@ -37,9 +38,21 @@ body {
     to { opacity: 1; transform: translateY(0); }
 }
 
+/* Responsive Design for Mobile */
+@media (max-width: 768px) {
+    body {
+        background-size: cover;  /* Ensure it fully covers mobile screens */
+    }
+
+    .container {
+        width: 95%;  /* Make the container wider for small screens */
+        margin: 5vh auto;  /* Adjust top margin */
+    }
+}
+
 /* Heading with underline effect */
 h2 {
-    font-size: 28px;
+    font-size: 24px;  /* Adjust font size for mobile */
     text-transform: uppercase;
     margin-bottom: 20px;
     position: relative;
@@ -56,7 +69,7 @@ h2::after {
 
 /* Textarea Styling */
 textarea {
-    width: 90%;
+    width: 100%;  /* Ensure it takes full width */
     height: 100px;
     padding: 10px;
     font-size: 16px;
