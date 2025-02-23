@@ -1,9 +1,12 @@
 from flask import Flask, request, jsonify, render_template
 from flask_cors import CORS
-from textblob import TextBlob
+from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
 
 app = Flask(__name__, static_folder="static", template_folder="templates")
 CORS(app)  # Enable CORS for frontend communication
+
+# Initialize VADER sentiment analyzer
+analyzer = SentimentIntensityAnalyzer()
 
 @app.route("/")
 def home():
@@ -16,10 +19,13 @@ def analyze_sentiment():
         return jsonify({"error": "Text input is empty"}), 400
 
     text = data["text"]
-    analysis = TextBlob(text)
-    sentiment = "positive" if analysis.sentiment.polarity > 0 else "negative" if analysis.sentiment.polarity < 0 else "neutral"
+    sentiment_score = analyzer.polarity_scores(text)
 
-    return jsonify({"sentiment": sentiment})
+    # Determine sentiment based on compound score
+    compound = sentiment_score['compound']
+    sentiment = "positive" if compound > 0.05 else "negative" if compound < -0.05 else "neutral"
+
+    return jsonify({"sentiment": sentiment, "score": sentiment_score})
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000, debug=True)  # Runs on localhost:5000
