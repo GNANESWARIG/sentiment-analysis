@@ -1,15 +1,30 @@
-/* Apply full-page background image */
+/* Full-screen background with zoom effect */
 body {
-    background: url('/static/1.jpg') no-repeat center center fixed;
-    background-size: cover;  /* Ensures full coverage */
-    background-attachment: fixed;
-    height: 100vh;  /* Ensures the page fills the entire screen */
+    margin: 0;
+    padding: 0;
     font-family: Arial, sans-serif;
     color: white;
     text-align: center;
-    margin: 0;
-    padding: 0;
-    overflow-x: hidden; /* Prevents horizontal scrolling */
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+/* Create a separate background layer */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('/static/1.jpg') no-repeat center center fixed;
+    background-size: cover;
+    z-index: -1;
+    animation: bgZoom 10s infinite alternate ease-in-out;
 }
 
 /* Background Zoom Effect */
@@ -18,20 +33,16 @@ body {
     100% { transform: scale(1.1); }
 }
 
-body {
-    animation: bgZoom 10s infinite alternate ease-in-out;
-}
-
 /* Container Styling */
 .container {
     max-width: 500px;
     width: 90%;
-    margin: 100px auto;
     background: rgba(0, 0, 0, 0.6); /* Dark background for contrast */
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.3);
     animation: fadeIn 1s ease-in-out;
+    position: relative; /* Ensure content stays in place */
 }
 
 /* Animate fade-in effect */
@@ -116,9 +127,8 @@ p#sentimentResult {
 
 /* Responsive Adjustments for Mobile Screens */
 @media (max-width: 768px) {
-    body {
-        background-size: cover !important; /* Forces full screen */
-        background-position: center !important;
+    body::before {
+        background-size: cover;
     }
 
     .container {
