@@ -1,30 +1,44 @@
-/* Apply full-page background image with zoom effect */
+/* Apply full-page background image */
 body {
     background: url('/static/1.jpg') no-repeat center center fixed;
-    background-size: 110%;  /* Ensure it fills the screen */
-    min-height: 100vh;  /* Full viewport height */
+    background-size: cover; /* Ensures it fully covers the screen */
+    background-attachment: fixed; /* Prevents scrolling issues */
+    min-height: 100vh;  /* Ensures it fills the full viewport */
     font-family: Arial, sans-serif;
     color: white;
     text-align: center;
     margin: 0;
     padding: 0;
-    animation: bgZoom 10s infinite alternate ease-in-out;
+    overflow-x: hidden; /* Prevents horizontal scrolling */
 }
 
-/* Background Zoom Animation */
+/* Background Zoom Effect */
 @keyframes bgZoom {
-    from {
-        background-size: 110%;
+    0% {
+        transform: scale(1);
     }
-    to {
-        background-size: 120%;
+    100% {
+        transform: scale(1.1);
     }
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('/images/1.jpg') no-repeat center center fixed;
+    background-size: cover;
+    z-index: -1;
+    animation: bgZoom 10s infinite alternate ease-in-out;
 }
 
 /* Container Styling */
 .container {
-    max-width: 90%;  /* Adjust width for mobile */
-    margin: 10vh auto;  /* Adjust margin to avoid overflow */
+    max-width: 500px;
+    margin: 100px auto;
     background: rgba(0, 0, 0, 0.6); /* Dark background for contrast */
     padding: 20px;
     border-radius: 10px;
@@ -38,21 +52,9 @@ body {
     to { opacity: 1; transform: translateY(0); }
 }
 
-/* Responsive Design for Mobile */
-@media (max-width: 768px) {
-    body {
-        background-size: cover;  /* Ensure it fully covers mobile screens */
-    }
-
-    .container {
-        width: 95%;  /* Make the container wider for small screens */
-        margin: 5vh auto;  /* Adjust top margin */
-    }
-}
-
 /* Heading with underline effect */
 h2 {
-    font-size: 24px;  /* Adjust font size for mobile */
+    font-size: 28px;
     text-transform: uppercase;
     margin-bottom: 20px;
     position: relative;
@@ -69,7 +71,7 @@ h2::after {
 
 /* Textarea Styling */
 textarea {
-    width: 100%;  /* Ensure it takes full width */
+    width: 90%;
     height: 100px;
     padding: 10px;
     font-size: 16px;
@@ -122,4 +124,17 @@ p#sentimentResult {
     padding: 10px;
     border-radius: 5px;
     background: rgba(255, 255, 255, 0.2);
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    body {
+        background-size: cover !important;  /* Forces full screen */
+        background-position: center !important;  /* Centers the image */
+    }
+
+    .container {
+        width: 90%;  /* Makes the content fit better */
+        margin: 5vh auto;
+    }
 }
