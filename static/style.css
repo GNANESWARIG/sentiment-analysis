@@ -1,28 +1,51 @@
 /* Apply full-page background image with wave movement and zoom effect */
 body {
     background: url('/static/1.jpg') no-repeat center center fixed;
-    background-size: 110%; /* Zoom the image slightly */
+    background-size: cover; /* Ensure full coverage and prevent blank spaces */
     font-family: Arial, sans-serif;
     color: blue;
     text-align: center;
     margin: 0;
     padding: 0;
+    height: 100vh; /* Ensure full viewport height */
+    overflow: hidden; /* Prevent scrolling from revealing blank areas */
     animation: waveBackground 10s infinite linear alternate;
 }
 
 /* Keyframes for gradual movement with zoom */
 @keyframes waveBackground {
     0% {
-        background-position: center 0px;
+        background-position: center top;
         background-size: 110%;
     }
     50% {
-        background-position: center 50px;
+        background-position: center 20px;
         background-size: 115%; /* Slight zoom effect to prevent blank spaces */
     }
     100% {
-        background-position: center 0px;
+        background-position: center top;
         background-size: 110%;
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    body {
+        background-size: cover; /* Ensure full coverage on mobile */
+    }
+    .container {
+        max-width: 90%;
+        margin: 50px auto;
+        padding: 15px;
+    }
+    h2 {
+        font-size: 24px;
+    }
+    textarea {
+        width: 100%;
+    }
+    button {
+        width: 100%;
     }
 }
 
