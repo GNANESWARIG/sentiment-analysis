@@ -111,7 +111,7 @@ h3 {
     text-decoration: underline;
 
     color: rgba(0, 255, 200, 0.8); /* Blended blue-green */
-    -webkit-text-stroke: 1.5px white; /* White outline */
+    -webkit-text-stroke: 0.6 px white; /* White outline */
     text-shadow: 
         0 0 10px rgba(0, 255, 200, 0.8), /* Blue-green glow */
         0 0 20px rgba(0, 255, 128, 0.6); /* Neon green secondary glow */
