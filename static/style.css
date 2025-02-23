@@ -1,6 +1,6 @@
 /* Apply full-page background image with zoom effect */
 body {
-    background: url('/images/1.jpg') no-repeat center center fixed;
+    background: url('/static/1.jpg') no-repeat center center fixed;
     background-size: cover;
     font-family: Arial, sans-serif;
     color: white;
