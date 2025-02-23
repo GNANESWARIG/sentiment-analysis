@@ -109,9 +109,8 @@ h3 {
     font-size: 22px;
     margin-top: 20px;
     text-decoration: underline;
-  
-    color: rgba(255, 153, 0, 0.8);
-    text-shadow: 0 0 10px rgba(255, 153, 0, 0.8);
+  color: rgba(0, 255, 200, 0.8); /* Blended blue-green */
+    text-shadow: 0 0 10px rgba(0, 255, 200, 0.8), 0 0 20px rgba(0, 255, 128, 0.6);
 
 
 }
