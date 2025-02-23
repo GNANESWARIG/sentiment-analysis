@@ -1,70 +1,55 @@
-/* Ensure full-screen background */
-html, body {
-    height: 100%;
-    width: 100%;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-}
-
-/* Apply AI futuristic background */
+/* AI-Themed Background */
 body {
     background: url('/static/1.jpg') no-repeat center center fixed;
     background-size: cover;
-    font-family: 'Orbitron', sans-serif; /* Futuristic font */
-    color: #f0f0f0;
+    font-family: 'Orbitron', sans-serif;
     text-align: center;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
+    animation: zoomEffect 0.8s ease-in-out infinite alternate;
 }
 
-/* Container Styling */
-.container {
-    width: 90%;
-    max-width: 500px;
-    background: rgba(10, 10, 30, 0.85); /* Transparent dark container */
-    padding: 20px;
-    border-radius: 12px;
-    box-shadow: 0 0 15px rgba(0, 255, 255, 0.5); /* Neon cyan glow */
-    margin-top: 5vh;
+/* Faster Zoom Animation */
+@keyframes zoomEffect {
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(1.05);
+    }
 }
 
-/* Heading with neon effect */
+/* Heading Colors */
 h2 {
-    font-size: 30px;
+    font-size: 28px;
+    color: #ff9900; /* Slight orangish glow */
     text-transform: uppercase;
-    margin-bottom: 20px;
-    color: #00ffff; /* Neon cyan */
-    text-shadow: 0 0 8px rgba(0, 255, 255, 0.8);
+    text-shadow: 0 0 10px rgba(255, 153, 0, 0.8);
 }
 
-/* Textarea Styling */
-textarea {
-    width: 90%;
-    height: 100px;
-    padding: 12px;
-    font-size: 16px;
-    border-radius: 8px;
-    border: 1px solid #00ffff; /* Neon border */
-    outline: none;
-    resize: none;
-    background: rgba(10, 10, 40, 0.9);
-    color: #ffffff;
+h3 {
+    font-size: 22px;
+    color: #ff9900;
+    text-shadow: 0 0 8px rgba(255, 153, 0, 0.6);
+}
+
+/* Text Result Styling */
+p#enteredText, p#sentimentResult {
+    font-size: 18px;
     font-weight: bold;
-    transition: 0.3s ease-in-out;
+    padding: 10px;
+    border-radius: 5px;
+    background: rgba(255, 204, 102, 0.2); /* Subtle yellowish-orange background */
+    color: #ffcc66; /* Neon yellow-orange text */
+    display: inline-block;
+    margin-top: 10px;
+    text-shadow: 0 0 5px rgba(255, 204, 102, 0.7);
 }
 
-/* Textarea Hover Effect */
-textarea:focus {
-    background: rgba(20, 20, 60, 1);
-    color: white;
-    border-color: #ff00ff;
-}
-
-/* Neon Button Styling */
+/* Neon Button */
 button {
     background: linear-gradient(90deg, #00ffff, #ff00ff);
     color: white;
@@ -77,62 +62,15 @@ button {
     margin-top: 10px;
     transition: all 0.2s ease-in-out;
     box-shadow: 0 0 10px rgba(0, 255, 255, 0.7);
+    animation: buttonGlow 1s infinite alternate;
 }
 
-/* Button Hover Effect */
-button:hover {
-    transform: scale(1.1);
-    background: linear-gradient(90deg, #ff00ff, #00ffff);
-    box-shadow: 0 0 15px rgba(255, 0, 255, 0.8);
-}
-
-/* Entered Text & Result Labels */
-h3 {
-    font-size: 22px;
-    margin-top: 20px;
-    text-decoration: underline;
-    color: #00ffff; /* Bright cyan for visibility */
-    text-shadow: 0 0 8px rgba(0, 255, 255, 0.7);
-}
-
-/* Entered Text & Result Values */
-p#enteredText, p#sentimentResult {
-    font-size: 18px;
-    font-weight: bold;
-    padding: 10px;
-    border-radius: 5px;
-    background: rgba(255, 255, 255, 0.1);
-    display: inline-block;
-    margin-top: 10px;
-    color: #ffffff; /* White for better visibility */
-    text-shadow: 0 0 10px rgba(0, 191, 255, 0.9); /* Soft blue glow */
-}
-
-/* Mobile Responsiveness */
-@media (max-width: 768px) {
-    body {
-        background-size: cover;
-        min-height: 100vh;
+/* Button Glow Effect */
+@keyframes buttonGlow {
+    from {
+        box-shadow: 0 0 10px rgba(0, 255, 255, 0.7);
     }
-
-    .container {
-        width: 90%;
-        padding: 15px;
-        margin-top: 15vh;
-        box-shadow: 0 0 12px rgba(0, 255, 255, 0.4);
-    }
-
-    h2 {
-        font-size: 24px;
-    }
-
-    textarea {
-        height: 80px;
-        font-size: 14px;
-    }
-
-    button {
-        font-size: 14px;
-        padding: 10px 16px;
+    to {
+        box-shadow: 0 0 15px rgba(255, 0, 255, 0.8);
     }
 }
