@@ -3,3 +3,4 @@ gunicorn
 snscrape
 textblob
 flask-cors
+vaderSentiment
