@@ -8,10 +8,11 @@ body {
     text-align: center;
     margin: 0;
     padding: 0;
-    min-height: 100vh; /* Ensures the background covers the full viewport height */
+    min-height: 100vh; /* Ensures full-screen coverage */
     display: flex;
-    justify-content: center;
+    flex-direction: column; /* Allows content to stack properly */
     align-items: center;
+    justify-content: flex-start; /* Keeps content at the top */
     animation: backgroundZoom 20s infinite alternate ease-in-out;
 }
 
@@ -27,13 +28,14 @@ body {
 
 /* Container Styling */
 .container {
-    max-width: 90%;
-    width: 500px;
+    width: 90%;
+    max-width: 500px;
     background: rgba(0, 0, 0, 0.6); /* Dark background for contrast */
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.3);
     animation: fadeIn 1s ease-in-out;
+    margin-top: 5vh; /* Space from top */
 }
 
 /* Animate fade-in effect */
@@ -108,12 +110,14 @@ h3 {
     text-decoration: underline;
 }
 
-p#sentimentResult {
+p#sentimentResult, p#enteredText {
     font-size: 18px;
     font-weight: bold;
     padding: 10px;
     border-radius: 5px;
     background: rgba(255, 255, 255, 0.2);
+    display: inline-block;
+    margin-top: 10px;
 }
 
 /* Mobile Responsiveness */
@@ -121,13 +125,12 @@ p#sentimentResult {
     body {
         background-size: cover;
         background-attachment: fixed;
-        min-height: 100vh; /* Ensures full screen coverage */
     }
     
     .container {
         width: 90%;
-        margin: 5vh auto;
         padding: 15px;
+        margin-top: 10vh;
     }
 
     h2 {
