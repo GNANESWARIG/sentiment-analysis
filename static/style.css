@@ -109,10 +109,11 @@ h3 {
     font-size: 22px;
     margin-top: 20px;
     text-decoration: underline;
-  color: rgba(0, 255, 200, 0.8); /* Blended blue-green */
-    text-shadow: 0 0 10px rgba(0, 255, 200, 0.8), 0 0 20px rgba(0, 255, 128, 0.6);
-
-
+  color: rgba(0, 255, 200, 0.9);
+    -webkit-text-stroke: 2px white; /* Thicker white outline */
+    text-shadow: 
+        0 0 15px rgba(0, 255, 200, 0.9), 
+        0 0 25px rgba(0, 255, 128, 0.7);
 }
 
 p#sentimentResult, p#enteredText {
