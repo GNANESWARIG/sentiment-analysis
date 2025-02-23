@@ -1,7 +1,7 @@
-/* Apply full-page background image with wave movement */
+/* Apply full-page background image with wave movement and zoom effect */
 body {
     background: url('/static/1.jpg') no-repeat center center fixed;
-    background-size: cover;
+    background-size: 110%; /* Zoom the image slightly */
     font-family: Arial, sans-serif;
     color: blue;
     text-align: center;
@@ -10,16 +10,19 @@ body {
     animation: waveBackground 10s infinite linear alternate;
 }
 
-/* Keyframes for gradual movement */
+/* Keyframes for gradual movement with zoom */
 @keyframes waveBackground {
     0% {
         background-position: center 0px;
+        background-size: 110%;
     }
     50% {
         background-position: center 50px;
+        background-size: 115%; /* Slight zoom effect to prevent blank spaces */
     }
     100% {
         background-position: center 0px;
+        background-size: 110%;
     }
 }
 
