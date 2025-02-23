@@ -1,59 +1,22 @@
-/* Apply full-page background image with wave movement and zoom effect */
+/* Apply full-page background image with zoom effect */
 body {
-    background: url('/static/1.jpg') no-repeat center center fixed;
-    background-size: 120% 120%; /* Ensure full coverage and prevent blank spaces */
+    background: url('/images/1.jpg') no-repeat center center fixed;
+    background-size: cover;
     font-family: Arial, sans-serif;
-    color: #f8f9fa; /* Light text color for better contrast */
+    color: white;
     text-align: center;
     margin: 0;
     padding: 0;
-    height: 100vh; /* Ensure full viewport height */
-    overflow: hidden; /* Prevent scrolling from revealing blank areas */
-    animation: waveBackground 18s infinite ease-in-out; /* Slower speed */
+    animation: bgZoom 10s infinite alternate ease-in-out;
 }
 
-@keyframes waveBackground {
-    0% {
-        background-position: center -80px; /* Start by moving upward */
-        background-size: 126% 126%;
+/* Background Zoom Animation */
+@keyframes bgZoom {
+    from {
+        background-size: 100%;
     }
-    25% {
-        background-position: center -40px;
-        background-size: 127% 127%;
-    }
-    50% {
-        background-position: center 30px;
-        background-size: 128% 128%; /* More gradual zoom */
-    }
-    75% {
-        background-position: center -40px;
-        background-size: 127% 127%;
-    }
-    100% {
-        background-position: center -80px; /* Move back up */
-        background-size: 126% 126%;
-    }
-}
-
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    body {
-        background-size: 140% 140%; /* Ensure full coverage on mobile */
-    }
-    .container {
-        max-width: 90%;
-        margin: 50px auto;
-        padding: 15px;
-    }
-    h2 {
-        font-size: 24px;
-    }
-    textarea {
-        width: 100%;
-    }
-    button {
-        width: 100%;
+    to {
+        background-size: 110%;
     }
 }
 
@@ -61,12 +24,11 @@ body {
 .container {
     max-width: 500px;
     margin: 100px auto;
-    background: rgba(0, 0, 0, 0.7); /* Darker background for better contrast */
+    background: rgba(0, 0, 0, 0.6); /* Dark background for contrast */
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.3);
-    animation: fadeIn 1.5s ease-in-out;
-    color: #f8f9fa; /* Light text color inside container */
+    animation: fadeIn 1s ease-in-out;
 }
 
 /* Animate fade-in effect */
@@ -81,7 +43,6 @@ h2 {
     text-transform: uppercase;
     margin-bottom: 20px;
     position: relative;
-    color: #ffcc70;
 }
 
 h2::after {
@@ -89,7 +50,7 @@ h2::after {
     display: block;
     width: 60%;
     height: 3px;
-    background: #ffcc70;
+    background: white;
     margin: 5px auto;
 }
 
@@ -100,11 +61,11 @@ textarea {
     padding: 10px;
     font-size: 16px;
     border-radius: 8px;
-    border: 1px solid #ffcc70;
+    border: 1px solid white;
     outline: none;
     resize: none;
     background: rgba(255, 255, 255, 0.3);
-    color: #222;
+    color: black;
     font-weight: bold;
     transition: 0.3s ease-in-out;
 }
@@ -117,7 +78,7 @@ textarea:focus {
 
 /* Button Styling */
 button {
-    background: linear-gradient(90deg, #ffcc70, #ff5733);
+    background: linear-gradient(90deg, #ff416c, #ff4b2b);
     color: white;
     border: none;
     padding: 12px 20px;
@@ -132,7 +93,7 @@ button {
 /* Button Hover Effect */
 button:hover {
     transform: scale(1.1);
-    background: linear-gradient(90deg, #ff5733, #ffcc70);
+    background: linear-gradient(90deg, #ff4b2b, #ff416c);
 }
 
 /* Sentiment Result Styling */
@@ -140,7 +101,6 @@ h3 {
     font-size: 22px;
     margin-top: 20px;
     text-decoration: underline;
-    color: #ffcc70;
 }
 
 p#sentimentResult {
@@ -149,5 +109,4 @@ p#sentimentResult {
     padding: 10px;
     border-radius: 5px;
     background: rgba(255, 255, 255, 0.2);
-    color: #f8f9fa;
 }
